@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 public class NoTree {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	private int valor;
 	private String decisao;
@@ -91,6 +92,8 @@ public class NoTree {
 
 }
 =======
+=======
+>>>>>>> 2e0d7a95430f125b8cec1958eef05883d68fe052
     private int valor;
     private String decisao;
     private String situacao;
@@ -145,5 +148,9 @@ public class NoTree {
         return String.format("[%d, %d, %d , %s, %s, %s ]\n",  this.valor, this.token, this.nivel, this.decisao, this.situacao, this.children);
     }
 
+<<<<<<< HEAD
+}
+>>>>>>> 2e0d7a95430f125b8cec1958eef05883d68fe052
+=======
 }
 >>>>>>> 2e0d7a95430f125b8cec1958eef05883d68fe052
