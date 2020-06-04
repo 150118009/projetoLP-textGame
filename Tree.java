@@ -1,26 +1,29 @@
 package work;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Tree {
 
 	private NoTree raiz;
+	private LinkedList<NoTree> ordem = new LinkedList<NoTree>();
 	int size;
 
 	public void inserir(int num,int token, int nivel, String situacao, String decisao) {
 
-		//if(raiz != null) {inserir(num, token, nivel, situacao, decisao, raiz);}
-		raiz = new NoTree(num, situacao, decisao, nivel);
-		//size = 1;
-		//return raiz;
+		if(raiz != null) {inserir(num, token, nivel, situacao, decisao, ordem.get(token));
+		}else{
+			raiz = new NoTree(num, situacao, decisao, nivel);
+			ordem.add(raiz);
+		}
 	}
 
 	public void inserir(int num, int token, int nivel, String situacao,String decisao, NoTree pai) {
 
-		if(pai.getChildren().isEmpty()) {
 			NoTree novoFilho = new NoTree(num,situacao,decisao,token,nivel);
 			pai.addChild(novoFilho);
-		}
+			ordem.add(novoFilho);
+		/*
 		else {
 		ArrayList<NoTree> filhos = pai.getChildren();
 
@@ -61,24 +64,23 @@ public class Tree {
 		//if(pai.getChildren().isEmpty()) {
 			if(pai.getValor()== token) {
 				return pai;
-			}
-			else if(!pai.getChildren().isEmpty()) {
+			} else if(!pai.getChildren().isEmpty()) {
 			ArrayList<NoTree> filhos = pai.getChildren();
 
 			for(int i=0; i<filhos.size(); i++) {
 				if(filhos.get(i).getValor() == token) {
 					return pai.getChildren().get(i);
-				}else {
-					return procurar(pai.getChildren().get(i), token);
-				}
+				} else {
+					pai = procurar(pai.getChildren().get(i), token);
 				}
 			}
+		}
 
 		return null;
 	}
 
-	public NoTree getRaiz() {
-		return raiz;
+	public LinkedList<NoTree> getOrdem() {
+		return ordem;
 	}
 
 	@Override
