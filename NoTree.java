@@ -1,55 +1,59 @@
+package work;
 import java.util.ArrayList;
 
 public class NoTree {
+    private int valor;
+    private String decisao;
+    private String situacao;
+    private int token;
+    private int nivel;
+    private ArrayList<NoTree> children;
 
-	private int valor;
-	private String decisao;
-	private String situacao;
-	private ArrayList<NoTree> children;
+    public NoTree(int valor, String decisao, String situacao) {
+    public NoTree(int valor, String decisao, String situacao, int nivel) {
+        this.valor = valor;
+        this.decisao = decisao;
+        this.situacao = situacao;
+        this.nivel = nivel;
+        this.children = new ArrayList<>();
+    }
 
-	public NoTree(int valor, String decisao, String situacao) {
-		this.valor = valor;
-		this.decisao = decisao;
-		this.situacao = situacao;
-		this.children = new ArrayList<>();
-	}
+    public NoTree(int valor, String decisao, String situacao,int token, int nivel) {
+        this.valor = valor;
+        this.decisao = decisao;
+        this.situacao = situacao;
+        this.token = token;
+        this.nivel = nivel;
+        this.children = new ArrayList<>();
+    }
 
-	public String getDecisao() {
-		return decisao;
-	}
-	public void setDecisao(String decisao) {
-		this.decisao = decisao;
-	}
 
-	public String getSituacao() {
-		return situacao;
-	}
+    public int getNivel() {
+        return nivel;
+    }
 
-	public void setSituacao(String situacao) {
-		this.situacao = situacao;
-	}
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
 
-	public int getValor() {
-		return valor;
-	}
+    public int getToken() {
+        return token;
+    }
 
-	public void setValor(int valor) {
-		this.valor = valor;
-	}
+    public void setToken(int token) {
+        this.token = token;
+    }
 
-	public ArrayList<NoTree> getChildren(){
-		return children;
-	}
+    public String getDecisao() {
+        return decisao;
+    }
+    public void removeChild(int valor) {
+        children.remove(valor);
+    }
 
-	public void addChild(NoTree child) {
-		children.add(child);
-	}
+    @Override
+    public String toString() {
+        return String.format("[%d, %d, %d , %s, %s, %s ]\n",  this.valor, this.token, this.nivel, this.decisao, this.situacao, this.children);
+    }
 
-	public void removeChild(NoTree child) {
-		children.remove(child);
-	}
-
-	public void removeChild(int valor) {
-		children.remove(valor);
-	}
 }
