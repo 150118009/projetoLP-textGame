@@ -66,7 +66,7 @@ public class Tree {
 				return pai;
 			} else if(!pai.getChildren().isEmpty()) {
 			ArrayList<NoTree> filhos = pai.getChildren();
-
+			
 			for(int i=0; i<filhos.size(); i++) {
 				if(filhos.get(i).getValor() == token) {
 					return pai.getChildren().get(i);
