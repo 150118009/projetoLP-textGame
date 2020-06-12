@@ -24,12 +24,13 @@ public class TextGameMain {
 		System.out.println("Este programa é um jogo de texto em que o utilizador decide um caminho ao escolher o número do caminho que pretende seguir");
 		System.out.println("Acordas-te numa floresta sem qualquer memória do passado");
 		
+		NoTree death = null;
 		while(alive) {
 		NoTree pai = jogo.procurar(token);
 		ArrayList<NoTree> caminhos = pai.getChildren();
-		System.out.println(caminhos.size());
 		if(caminhos.size()==0) {
 			alive=false;
+			death = pai;
 			break;
 		}
 		System.out.println(pai.getInfo().getSituacao());
@@ -48,7 +49,7 @@ public class TextGameMain {
 			token = respostaNova;
 			}
 		}
-		System.out.println("Morreste devido a uma decisão incorretamente tomada.\n Pretendes jogar novamente?\n Responde de seguida com 1(sim) ou 0(não).");
+		System.out.println(" "+death.getInfo().getSituacao() +"\n Pretendes jogar novamente?\n Responde de seguida com 1(sim) ou 0(não).");
 		int newGame = scan.nextInt();
 			
 		if(newGame==1) {
